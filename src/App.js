@@ -12,17 +12,6 @@ class App extends Component {
   }
 
   currentTime() {
-    /*var now = new Date();
-    var start = new Date(now.getFullYear(), 0, 0);
-    var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
-    var oneDay = 1000 * 60 * 60 * 24;
-    var day = Math.floor(diff / oneDay);
-
-    now = this.state.arrivalDate;
-    start = new Date(now.getFullYear(), 0, 0);
-    diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
-    oneDay = 1000 * 60 * 60 * 24;
-    var day2 = Math.floor(diff / oneDay);*/
     let now = new Date()
     let now_utc = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes()))
     let diff = this.timeDiffCalc(this.state.arrivalDate, now_utc)
@@ -60,9 +49,9 @@ class App extends Component {
       difference += (days === 1) ? `${days} day, ` : `${days} days, `;
     }
 
-    difference += (hours === 0 || hours === 1) ? `${hours} hour, ` : `${hours} hours, `;
+    difference += (hours === 1) ? `${hours} hour, ` : `${hours} hours, `;
 
-    difference += (minutes === 0 || hours === 1) ? `${minutes} minutes` : `${minutes} minutes`; 
+    difference += (hours === 1) ? `${minutes} minutes` : `${minutes} minutes`; 
 
     return difference;
   }
