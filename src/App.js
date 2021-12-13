@@ -30,7 +30,7 @@ class App extends Component {
 
   componentWillMount() {
     setInterval(() => this.currentTime(), 1000 * 15)
-    setInterval(() => this.findBarProgress(), 1000 * 60 * 30)
+    setInterval(() => this.findBarProgress(), 1000 * 60 * 1)
   }
 
   timeDiffCalc(dateFuture, dateNow) {
@@ -66,9 +66,9 @@ class App extends Component {
     let diffInMilliSeconds = Math.abs(this.state.arrivalDate - this.state.previousDepartureDate)
     let progressInMilliseconds = Math.abs(now_utc - this.state.previousDepartureDate)
 
-    let percentage = Math.floor(progressInMilliseconds * 100/diffInMilliSeconds)
+    let percentage = (progressInMilliseconds * 100/diffInMilliSeconds)
     this.setState({
-      percentage: percentage
+      percentage: percentage.toFixed(2)
     })
   }
 
