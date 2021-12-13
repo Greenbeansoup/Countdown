@@ -6,8 +6,10 @@ class App extends Component {
     super()
     this.state = {
       arrivalDate: new Date(Date.UTC(2022, 0, 30, 19, 1)),
+      previousDepartureDate: new Date(Date.UTC(2021, 11, 2, 0, 47)),
       visitor: "Agustina",
-      city: "Chicago"
+      city: "Chicago",
+      percentage: 0
     }
   }
 
@@ -23,10 +25,12 @@ class App extends Component {
   
   componentDidMount() {
     this.currentTime()
+    this.findBarProgress()
   }
 
   componentWillMount() {
     setInterval(() => this.currentTime(), 1000 * 15)
+    setInterval(() => this.findBarProgress(), 1000 * 60 * 30)
   }
 
   timeDiffCalc(dateFuture, dateNow) {
@@ -56,11 +60,24 @@ class App extends Component {
     return difference;
   }
 
+  findBarProgress() {
+    let now = new Date()
+    let now_utc = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes()))
+    let diffInMilliSeconds = Math.abs(this.state.arrivalDate - this.state.previousDepartureDate)
+    let progressInMilliseconds = Math.abs(now_utc - this.state.previousDepartureDate)
+
+    let percentage = Math.floor(progressInMilliseconds * 100/diffInMilliSeconds)
+    this.setState({
+      percentage: percentage
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {this.state.diff} until {this.state.visitor} arrives in {this.state.city}!
+          <p>{this.state.diff} until {this.state.visitor} arrives in {this.state.city}!</p>
+          <p> Progress: {this.state.percentage}%</p>
         </header>
       </div>
     );
