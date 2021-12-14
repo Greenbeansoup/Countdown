@@ -1,5 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 class App extends Component {
   constructor() {
@@ -77,6 +79,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>{this.state.diff} until {this.state.visitor} arrives in {this.state.city}!</p>
+          <div className="Progress-Bar">
+            <ProgressBar now={this.state.percentage} label={`${this.state.percentage}%`} />
+          </div>
           <p> Progress: {this.state.percentage}%</p>
         </header>
       </div>
