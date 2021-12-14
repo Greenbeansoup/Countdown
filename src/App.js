@@ -80,7 +80,7 @@ class App extends Component {
         <header className="App-header">
           <p>{this.state.diff} until {this.state.visitor} arrives in {this.state.city}!</p>
           <div className="Progress-Bar">
-            <ProgressBar now={this.state.percentage} label={`${this.state.percentage}%`} />
+            <ProgressBar now={this.state.percentage} variant="danger" label={`${this.state.percentage}%`} />
           </div>
           <p> Progress: {this.state.percentage}%</p>
         </header>
