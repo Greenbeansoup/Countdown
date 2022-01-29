@@ -7,7 +7,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      arrivalDate: new Date(Date.UTC(2022, 0, 30, 19, 1)),
+      arrivalDate: new Date(Date.UTC(2022, 0, 30, 17, 6)),
       previousDepartureDate: new Date(Date.UTC(2021, 11, 2, 0, 47)),
       visitor: "Agustina",
       city: "Chicago",
