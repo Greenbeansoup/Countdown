@@ -7,10 +7,10 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      arrivalDate: new Date(Date.UTC(2022, 0, 30, 17, 6)),
-      previousDepartureDate: new Date(Date.UTC(2021, 11, 2, 0, 47)),
-      visitor: "Agustina",
-      city: "Chicago",
+      arrivalDate: new Date(Date.UTC(2022, 3, 21, 9, 29)),
+      previousDepartureDate: new Date(Date.UTC(2022, 2, 13, 22, 59)),
+      visitor: "Jake",
+      city: "Buenos Aires",
       percentage: 0
     }
   }
