@@ -7,10 +7,10 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      arrivalDate: new Date(Date.UTC(2022, 3, 21, 9, 29)),
-      previousDepartureDate: new Date(Date.UTC(2022, 2, 13, 22, 59)),
-      visitor: "Jake",
-      city: "Buenos Aires",
+      arrivalDate: new Date(Date.UTC(2022, 5, 22, 15, 10)),
+      previousDepartureDate: new Date(Date.UTC(2022, 4, 16, 22, 30)),
+      visitor: "Jake and Agus",
+      city: "Madrid",
       percentage: 0
     }
   }
@@ -78,7 +78,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>{this.state.diff} until {this.state.visitor} arrives in {this.state.city}!</p>
+          <p>{this.state.diff} until {this.state.visitor} arrive in {this.state.city}!</p>
           <div className="Progress-Div">
             <p className="Progress-Label">Last Visit</p>
             <ProgressBar className="Progress-Bar" now={this.state.percentage} variant="danger" label={`${this.state.percentage}%`} />
